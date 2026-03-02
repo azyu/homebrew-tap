@@ -1,0 +1,35 @@
+class Bb < Formula
+  desc "Bitbucket Cloud CLI inspired by gh"
+  homepage "https://github.com/azyu/bb"
+  version "{{VERSION}}"
+  license "MIT"
+
+  on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/azyu/bb/releases/download/v{{VERSION}}/bb_{{VERSION}}_darwin_arm64.zip"
+      sha256 "{{DARWIN_ARM64_SHA256}}"
+    end
+  end
+
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/azyu/bb/releases/download/v{{VERSION}}/bb_{{VERSION}}_linux_amd64.tar.gz"
+      sha256 "{{LINUX_AMD64_SHA256}}"
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/azyu/bb/releases/download/v{{VERSION}}/bb_{{VERSION}}_linux_arm64.tar.gz"
+      sha256 "{{LINUX_ARM64_SHA256}}"
+    end
+  end
+
+  def install
+    bin.install "bb"
+    bash_completion.install Utils.safe_popen_read(bin/"bb", "completion", "bash").to_s => "bb"
+    zsh_completion.install Utils.safe_popen_read(bin/"bb", "completion", "zsh").to_s => "_bb"
+    fish_completion.install Utils.safe_popen_read(bin/"bb", "completion", "fish").to_s => "bb.fish"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/bb version")
+  end
+end
