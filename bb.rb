@@ -24,9 +24,7 @@ class Bb < Formula
 
   def install
     bin.install "bb"
-    bash_completion.install Utils.safe_popen_read(bin/"bb", "completion", "bash").to_s => "bb"
-    zsh_completion.install Utils.safe_popen_read(bin/"bb", "completion", "zsh").to_s => "_bb"
-    fish_completion.install Utils.safe_popen_read(bin/"bb", "completion", "fish").to_s => "bb.fish"
+    generate_completions_from_executable(bin/"bb", "completion")
   end
 
   test do
