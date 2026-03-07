@@ -1,6 +1,6 @@
 # homebrew-bb
 
-Homebrew tap for [bb](https://github.com/azyu/bb) — Bitbucket Cloud CLI.
+Homebrew tap for [bb](https://github.com/azyu/bb-cli) — Bitbucket Cloud CLI.
 
 ## Install
 
@@ -25,5 +25,5 @@ brew upgrade bb
 
 ```bash
 brew uninstall bb
-brew untap azyu/bb
+brew untap azyu/tap
 ```
