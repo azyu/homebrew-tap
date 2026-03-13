@@ -1,24 +1,24 @@
 class Bb < Formula
   desc "Bitbucket Cloud CLI inspired by gh"
   homepage "https://github.com/azyu/bb-cli"
-  version "0.1.3"
+  version "0.1.4"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/azyu/bb-cli/releases/download/v0.1.3/bb_0.1.3_macos_arm64.tar.gz"
-      sha256 "f468b2c443bb9da317fec933577e9b808cc5f1e5e22e362be093db7b449bdeac"
+      url "https://github.com/azyu/bb-cli/releases/download/v0.1.4/bb_0.1.4_macos_arm64.tar.gz"
+      sha256 "4b54b2582077bc68fd49baa931bbd3293c6dc0fac4d7eb14b552a756dc2c8268"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/azyu/bb-cli/releases/download/v0.1.3/bb_0.1.3_linux_amd64.tar.gz"
-      sha256 "efbd8265f3aae8ebc011833b95e8ce0fe9bd0734156263fcbcd9c90db27b0467"
+      url "https://github.com/azyu/bb-cli/releases/download/v0.1.4/bb_0.1.4_linux_amd64.tar.gz"
+      sha256 "1be355e084fa851494fca33a402c4f871f72b3169ccda85d3ab81710f12090c2"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/azyu/bb-cli/releases/download/v0.1.3/bb_0.1.3_linux_arm64.tar.gz"
-      sha256 "680a569c41f4ccce1ded809c877a8a169133a4cc0d8ec3d496e445a55f8e461c"
+      url "https://github.com/azyu/bb-cli/releases/download/v0.1.4/bb_0.1.4_linux_arm64.tar.gz"
+      sha256 "10a0961c570b021ca9b012dabb5f69b03993821421b8431f742711ea58c91835"
     end
   end
 
