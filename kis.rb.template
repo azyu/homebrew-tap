@@ -1,0 +1,32 @@
+class Kis < Formula
+  desc "KIS Open API CLI for Korea Investment & Securities"
+  homepage "https://github.com/azyu/kis-cli"
+  version "{{VERSION}}"
+  license "MIT"
+
+  on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/azyu/kis-cli/releases/download/v{{VERSION}}/kis_{{VERSION}}_macos_arm64.tar.gz"
+      sha256 "{{MACOS_ARM64_SHA256}}"
+    end
+  end
+
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/azyu/kis-cli/releases/download/v{{VERSION}}/kis_{{VERSION}}_linux_amd64.tar.gz"
+      sha256 "{{LINUX_AMD64_SHA256}}"
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/azyu/kis-cli/releases/download/v{{VERSION}}/kis_{{VERSION}}_linux_arm64.tar.gz"
+      sha256 "{{LINUX_ARM64_SHA256}}"
+    end
+  end
+
+  def install
+    bin.install "kis"
+  end
+
+  test do
+    assert_match "Usage:", shell_output("#{bin}/kis --help")
+  end
+end
