@@ -1,0 +1,14 @@
+cask "transnovel" do
+  version "{{VERSION}}"
+  sha256 "{{MACOS_ARM64_SHA256}}"
+
+  url "https://github.com/azyu/transnovel/releases/download/v#{version}/TransNovel_#{version}_aarch64.dmg"
+  name "TransNovel"
+  desc "AI-powered Japanese web novel translator"
+  homepage "https://github.com/azyu/transnovel"
+
+  auto_updates true
+  depends_on arch: :arm64
+
+  app "TransNovel.app"
+end
