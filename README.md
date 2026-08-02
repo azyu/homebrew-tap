@@ -36,13 +36,13 @@ brew install toss
 brew install --cask transnovel
 ```
 
-TransNovel is currently ad-hoc signed and not Apple-notarized. If macOS blocks the quarantined app, review the source and release before explicitly installing without quarantine:
+TransNovel is currently ad-hoc signed and not Apple-notarized. If macOS blocks the quarantined app after the standard `brew install --cask azyu/tap/transnovel`, review the source and release before allowing it to open:
 
-```bash
-brew install --cask --no-quarantine azyu/tap/transnovel
-```
+1. Locate `TransNovel` in Finder.
+2. Control-click the app, choose **Open**, then confirm **Open**.
+3. Alternatively, open **System Settings > Privacy & Security** and choose **Open Anyway** for TransNovel.
 
-`--no-quarantine` disables a macOS security control for this installation. Do not use it unless you trust the published artifact.
+Only bypass this warning if you trust the published artifact.
 
 ## Upgrade
 
